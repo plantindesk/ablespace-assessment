@@ -1,6 +1,7 @@
 "use client";
 
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import DOMPurify from "dompurify";
 import {
   Check,
   ChevronLeft,
@@ -15,7 +16,6 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
 import { useProduct } from "@/hooks/use-product";
 import { api } from "@/lib/api";
 import { formatPrice, getRelativeTime } from "@/lib/utils";
@@ -164,11 +164,10 @@ export function ProductClient({ slug }: ProductClientProps) {
                 {detail.conditions.map((condition, idx) => (
                   <div
                     key={idx}
-                    className={`flex items-center justify-between p-3 rounded-lg border ${
-                      condition.available
+                    className={`flex items-center justify-between p-3 rounded-lg border ${condition.available
                         ? "bg-green-50 border-green-200"
                         : "bg-gray-50 border-gray-200 opacity-60"
-                    }`}
+                      }`}
                   >
                     <span className="font-medium">{condition.label}</span>
                     <div className="flex items-center gap-2">
@@ -238,7 +237,9 @@ export function ProductClient({ slug }: ProductClientProps) {
             <CardContent className="pt-6">
               <div
                 className="prose prose-sm max-w-none"
-                dangerouslySetInnerHTML={{ __html: detail.description }}
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(detail.description),
+                }}
               />
             </CardContent>
           </Card>
