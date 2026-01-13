@@ -71,6 +71,7 @@ pnpm install
 Create a `.env` file in the root directory with the following environment variables:
 
 ```env
+ALLOWRED_ORIGIN=http://localhost:3000 # Or your frontend domain
 # MongoDB Connection URI
 MONGODB_URI=mongodb://localhost:27017/worldofbooks
 # OR for MongoDB Atlas:
