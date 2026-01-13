@@ -8,9 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: [
-      process.env.ALLOWED_ORIGIN || "http://localhost:3000",
-    ],
+    origin: [process.env.ALLOWED_ORIGIN || "http://localhost:3000"],
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
     credentials: true,
   });
@@ -34,7 +32,7 @@ async function bootstrap() {
     .addTag("scraper")
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup("api", app, document);
+  SwaggerModule.setup("docs", app, document);
 
   const port = process.env.PORT || 3000;
   await app.listen(port);
