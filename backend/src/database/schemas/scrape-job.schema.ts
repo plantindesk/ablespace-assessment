@@ -67,7 +67,6 @@ export class ScrapeJob {
 
 export const ScrapeJobSchema = SchemaFactory.createForClass(ScrapeJob);
 
-// Compound indexes for job management
 ScrapeJobSchema.index({ status: 1, started_at: 1 });
 ScrapeJobSchema.index({ target_type: 1, status: 1 });
 ScrapeJobSchema.index({ target_url: 1, status: 1 });

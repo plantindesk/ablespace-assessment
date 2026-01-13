@@ -56,6 +56,5 @@ export class Category {
 
 export const CategorySchema = SchemaFactory.createForClass(Category);
 
-// Compound indexes
 CategorySchema.index({ navigation_id: 1, slug: 1 }, { unique: true });
 CategorySchema.index({ parent_id: 1, slug: 1 });

@@ -47,6 +47,5 @@ export class Review {
 
 export const ReviewSchema = SchemaFactory.createForClass(Review);
 
-// Compound index for product reviews sorted by date
 ReviewSchema.index({ product_id: 1, created_at: -1 });
 ReviewSchema.index({ product_id: 1, rating: 1 });

@@ -28,7 +28,6 @@ export class CatalogMapper {
       upsert: boolean;
     };
   } {
-    // Ensure categoryId is a proper ObjectId instance
     const categoryObjectId = new Types.ObjectId(categoryId.toString());
 
     return {
@@ -53,7 +52,6 @@ export class CatalogMapper {
     };
   }
 
-  // ... rest of the file remains unchanged
   mapScrapedDetailToDocument(
     scraped: ScrapedProductDetail,
     productId: Types.ObjectId,

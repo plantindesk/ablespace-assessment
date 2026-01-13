@@ -3,9 +3,6 @@ import { HydratedDocument, Types } from "mongoose";
 
 export type ViewHistoryDocument = HydratedDocument<ViewHistory>;
 
-/**
- * Individual path entry in browsing journey
- */
 export class PathEntry {
   @Prop({ required: true })
   url: string;
@@ -56,9 +53,7 @@ export class ViewHistory {
 
 export const ViewHistorySchema = SchemaFactory.createForClass(ViewHistory);
 
-// Compound index for user journey analysis
 ViewHistorySchema.index({ user_id: 1, created_at: -1 });
 ViewHistorySchema.index({ session_id: 1, created_at: -1 });
 
-// TTL index - auto-delete after 90 days (optional)
 ViewHistorySchema.index({ created_at: 1 }, { expireAfterSeconds: 7776000 });

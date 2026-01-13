@@ -3,14 +3,14 @@ import { ConfigModule, ConfigService } from "@nestjs/config";
 import { MongooseModule } from "@nestjs/mongoose";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
-import { CatalogModule } from "./catalog/catalog.module"; // Import this
+import { CatalogModule } from "./catalog/catalog.module";
 import { DatabaseModule } from "./database/database.module";
-import { ScraperModule } from "./scraper/scraper.module"; // Import this
+import { ScraperModule } from "./scraper/scraper.module";
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true, // Make env vars available everywhere
+      isGlobal: true,
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
