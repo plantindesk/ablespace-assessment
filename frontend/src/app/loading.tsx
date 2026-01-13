@@ -6,7 +6,7 @@ export default function HomeLoading() {
       {/* Hero Skeleton */}
       <section className="text-center py-12 space-y-4">
         <Skeleton className="h-12 w-96 mx-auto" />
-        <Skeleton className="h-6 w-[600px] mx-auto" />
+        <Skeleton className="h-6 w-150 mx-auto" />
       </section>
 
       {/* Categories Grid Skeleton */}

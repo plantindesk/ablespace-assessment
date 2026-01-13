@@ -43,16 +43,10 @@ async function fetchApi<T>(
 }
 
 export const api = {
-  /**
-   * Get all categories
-   */
   getCategories: (): Promise<CategoriesResponse> => {
     return fetchApi<CategoriesResponse>("/catalog/categories");
   },
 
-  /**
-   * Get category with products
-   */
   getCategory: (
     slug: string,
     page: number = 1,
@@ -65,16 +59,10 @@ export const api = {
     return fetchApi<CategoryResponse>(`/catalog/category/${slug}?${params}`);
   },
 
-  /**
-   * Get product details
-   */
   getProduct: (slug: string): Promise<ProductResponse> => {
     return fetchApi<ProductResponse>(`/catalog/product/${slug}`);
   },
 
-  /**
-   * Search products
-   */
   searchProducts: (
     query: string,
     page: number = 1,
@@ -88,18 +76,12 @@ export const api = {
     return fetchApi<SearchResponse>(`/catalog/search?${params}`);
   },
 
-  /**
-   * Force refresh category
-   */
   refreshCategory: (slug: string): Promise<CategoryResponse> => {
     return fetchApi<CategoryResponse>(`/catalog/category/${slug}/refresh`, {
       method: "POST",
     });
   },
 
-  /**
-   * Force refresh product
-   */
   refreshProduct: (slug: string): Promise<ProductResponse> => {
     return fetchApi<ProductResponse>(`/catalog/product/${slug}/refresh`, {
       method: "POST",

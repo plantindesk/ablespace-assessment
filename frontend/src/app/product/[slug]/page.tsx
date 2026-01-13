@@ -1,5 +1,5 @@
-import { ProductClient } from "./client";
 import { api } from "@/lib/api";
+import { ProductClient } from "./client";
 
 export async function generateStaticParams() {
   const categories = await api.getCategories();

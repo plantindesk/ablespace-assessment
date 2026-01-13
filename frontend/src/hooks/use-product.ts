@@ -8,7 +8,6 @@ export function useProduct(slug: string) {
     queryKey: ["product", slug],
     queryFn: () => api.getProduct(slug),
     enabled: !!slug,
-    // Product details might take time if scraping, so longer stale time
     staleTime: 5 * 60 * 1000,
   });
 }
